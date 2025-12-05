@@ -209,7 +209,7 @@
     "Category": "Formatting",
     "Severity": 2,
     "Scope": "Measure",
-    "Expression": "DataType == DataType.Int64 and not FormatString.Contains(\"$\") and not FormatString.Contains(\"%\") and ( string.IsNullOrWhiteSpace(FormatString) or FormatString != \"#,##0\" )",
+    "Expression": "DataType == DataType.Int64 and not FormatString.Contains(\"$\") and not FormatString.Contains(\"%\") and not Name.ToUpper().Contains(\"YEAR\") and not Name.ToUpper().Contains(\"JAAR\") and ( string.IsNullOrWhiteSpace(FormatString) or FormatString != \"#,##0\" )",
     "FixExpression": "FormatString = \"#,##0\"",
     "CompatibilityLevel": 1200
   },
