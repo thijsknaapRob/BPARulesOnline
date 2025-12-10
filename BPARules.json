@@ -272,8 +272,8 @@
     "Category": "Formatting",
     "Severity": 2,
     "Scope": "Measure",
-    "Expression": "FormatString.Contains(\"%\") and FormatString <> \"#,##0.00%\"",
-    "FixExpression": "FormatString = \"#,##0.00%\"",
+    "Expression": "FormatString.Contains(\"%\") and FormatString <> \"#,##0.00 %\"",
+    "FixExpression": "FormatString = \"#,##0.00 %\"",
     "CompatibilityLevel": 1200
   },
   {
