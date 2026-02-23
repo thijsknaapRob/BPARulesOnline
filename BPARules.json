@@ -45,7 +45,7 @@
     "Category": "DAX Expressions",
     "Description": "Instead of using this pattern FILTER('Table','Table'[Column]=\"Value\") for the filter parameters of a CALCULATE or CALCULATETABLE function, use one of the options below. As far as whether to use the KEEPFILTERS function, see the second reference link below.\n\n\n\nOption 1: KEEPFILTERS('Table'[Column]=\"Value\")\n\nOption 2: 'Table'[Column]=\"Value\"\n\n\n\nReference: https://docs.microsoft.com/power-bi/guidance/dax-avoid-avoid-filter-as-filter-argument\n\nReference: https://www.sqlbi.com/articles/using-keepfilters-in-dax/",
     "Severity": 2,
-    "Scope": "Measure, CalculatedColumn, CalculationItem",
+    "Scope": "Measure, CalculatedColumn",
     "Expression": "RegEx.IsMatch(Expression,\"(?i)CALCULATE\\s*\\(\\s*[^,]+,\\s*(?i)FILTER\\s*\\(\\s*\\'*[A-Za-z0-9 _]+'*\\s*,\\s*\\'*[A-Za-z0-9 _]+\\'*\\[[A-Za-z0-9 _]+\\]\")\n\nor\n\nRegEx.IsMatch(Expression,\"(?i)CALCULATETABLE\\s*\\([^,]*,\\s*(?i)FILTER\\s*\\(\\s*\\'*[A-Za-z0-9 _]+\\'*,\\s*\\'*[A-Za-z0-9 _]+\\'*\\[[A-Za-z0-9 _]+\\]\")",
     "CompatibilityLevel": 1200
   },
