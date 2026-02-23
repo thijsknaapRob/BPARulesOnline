@@ -55,7 +55,7 @@
     "Category": "DAX Expressions",
     "Description": "Instead of using this pattern FILTER('Table',[Measure]>Value) for the filter parameters of a CALCULATE or CALCULATETABLE function, use one of the options below (if possible). Filtering on a specific column will produce a smaller table for the engine to process, thereby enabling faster performance. Using the VALUES function or the ALL function depends on the desired measure result.\n\n\n\nOption 1: FILTER(VALUES('Table'[Column]),[Measure] > Value)\n\nOption 2: FILTER(ALL('Table'[Column]),[Measure] > Value)\n\n\n\nReference: https://docs.microsoft.com/power-bi/guidance/dax-avoid-avoid-filter-as-filter-argument",
     "Severity": 2,
-    "Scope": "Measure, CalculatedColumn, CalculationItem",
+    "Scope": "Measure, CalculatedColumn",
     "Expression": "RegEx.IsMatch(Expression,\"(?i)CALCULATE\\s*\\(\\s*[^,]+,\\s*(?i)FILTER\\s*\\(\\s*\\'*[A-Za-z0-9 _]+\\'*\\s*,\\s*\\[[^\\]]+\\]\")\n\nor\n\nRegEx.IsMatch(Expression,\"(?i)CALCULATETABLE\\s*\\([^,]*,\\s*(?i)FILTER\\s*\\(\\s*\\'*[A-Za-z0-9 _]+\\'*,\\s*\\[\")",
     "CompatibilityLevel": 1200
   },
