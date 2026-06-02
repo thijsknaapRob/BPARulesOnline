@@ -10,16 +10,6 @@
     "CompatibilityLevel": 1200
   },
   {
-    "ID": "AVOID_USING_'1-(X/Y)'_SYNTAX",
-    "Name": "[DAX Expressions] Avoid using '1-(x/y)' syntax",
-    "Category": "DAX Expressions",
-    "Description": "Instead of using the '1-(x/y)' or '1+(x/y)' syntax to achieve a percentage calculation, use the basic DAX functions (as shown below). Using the improved syntax will generally improve the performance. The '1+/-...' syntax always returns a value whereas the solution without the '1+/-...' does not (as the value may be 'blank'). Therefore the '1+/-...' syntax may return more rows/columns which may result in a slower query speed.\n\nLet's clarify with an example:\n\nAvoid this: 1 - SUM ( 'Sales'[CostAmount] ) / SUM( 'Sales'[SalesAmount] )\nBetter: DIVIDE ( SUM ( 'Sales'[SalesAmount] ) - SUM ( 'Sales'[CostAmount] ), SUM ( 'Sales'[SalesAmount] ) )\nBest: VAR x = SUM ( 'Sales'[SalesAmount] ) RETURN DIVIDE ( x - SUM ( 'Sales'[CostAmount] ), x )",
-    "Severity": 2,
-    "Scope": "Measure, CalculatedColumn, CalculationItem",
-    "Expression": "RegEx.IsMatch(Expression,\"[0-9]+\\s*[-+]\\s*[\\(]*\\s*(?i)SUM\\s*\\(\\s*\\'*[A-Za-z0-9 _]+\\'*\\s*\\[[A-Za-z0-9 _]+\\]\\s*\\)\\s*\\/\")\n\nor\n\nRegEx.IsMatch(Expression,\"[0-9]+\\s*[-+]\\s*(?i)DIVIDE\\s*\\(\")",
-    "CompatibilityLevel": 1200
-  },
-  {
     "ID": "DAX_COLUMNS_FULLY_QUALIFIED",
     "Name": "[DAX Expressions] Column references should be fully qualified",
     "Category": "DAX Expressions",
